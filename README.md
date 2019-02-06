@@ -1,37 +1,88 @@
-## Welcome to GitHub Pages
+# "Affiliates" - Jekyll Template by WowThemes.net
 
-You can use the [editor on GitHub](https://github.com/getsudhagar/getsudhagar.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[Live Demo](https://wowthemesnet.github.io/affiliates-jekyll-theme/) &nbsp; &nbsp; [Download](https://github.com/wowthemesnet/affiliates-jekyll-theme/archive/master.zip)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![enter image description here](assets/images/theme1.jpg)
 
-### Markdown
+### Features
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Built for Jekyll
+- Compatible with Github pages
+- Featured Posts
+- Index Pagination
+- Post Share
+- Post Categories
+- Prev/Next Link
+- Category Archives (this is not yet compatible with github pages though)
+- Jumbotron Categories
+- Integrations:
+    - Disqus Comments
+    - Google Analaytics
+    - Mailchimp Integration
+    - Formspree.io Contact
+    - ShareThis Integration
+- Design Features:
+    - Bootstrap v4.0.0-alpha.6
+    - Font Awesome
+    - Masonry
+- Layouts:
+    - Default
+    - Post
+    - Page
+    - Archive
+    
+### How to Use
 
-```markdown
-Syntax highlighted code block
+If you aren't familiar with Jekyll yet, you should know that it is a static site generator. It will transform your plain text into static websites and blogs. No more databases, slow loading websites, risk of being hacked...just your content. And not only that, with Jekyll you get free hosting with GitHub Pages! This page itself is free hosted on Github with the help of Jekyll and Affiliates template that you're currently previewing. If you are a beginner we recommend you start with [Jekyll's Docs](https://jekyllrb.com/docs/installation/). Now if you know how to use Jekyll, let's move on to using Affiliates template in Jekyll:
 
-# Header 1
-## Header 2
-### Header 3
+### Using Affiliates template with Jekyll
 
-- Bulleted
-- List
+Download or Fork *Affiliates for Jekyll*. 
+- In your local project, open <code>_config.yml</code>. Set your <code>baseurl</code>, your Google Analytics code, Disqus username, Authors, Mailchimp, ShareThis code (https://www.sharethis.com/) etc.
+- Affiliates requires 2 plugins: 
+    - <code>$ gem install jekyll-paginate</code>
+    - <code>$ gem install jekyll-archives</code>.
+    - Edit the header & footer in <code>default.html</code>.  Edit home in <code>index.html</code>. Edit the contact form in <code>contact.html</code> (https://formspree.io/).
+- Start blogging by adding your .md files in <code>_posts</code>. If you download the template you will notice it already has a few as an example. 
+- YAML front matter
+    - post featured - <code>featured:true</code>
+    - post featured image - <code>image: assets/images/mypic.jpg</code>
+    - page comments - <code>comments:true</code>
+    - meta description (optional) - <code>description: "this is my meta description"</code>
+    
+YAML Post Example:
+<pre>
+---
+layout: post
+title:  "We all wait for summer"
+author: john
+categories: [ Jekyll, tutorial ]
+image: assets/images/5.jpg
+featured: true
+---
+</pre>
 
-1. Numbered
-2. List
+YAML Page Example
+<pre>
+---
+layout: page
+title: Affiliates Template for Jekyll
+comments: true
+---
+</pre>
 
-**Bold** and _Italic_ and `Code` text
+### Copyright
 
-[Link](url) and ![Image](src)
-```
+Copyright (C) 2018 WowThemes.net.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**Affiliates for Jekyll** is designed by [Sal](https://www.wowthemes.net) and it is licensed MIT. If this project helps you reduce time to develop or you want to remove the attribution credit, you can give me a cup of coffee :)
 
-### Jekyll Themes
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/wowthemes/5)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/getsudhagar/getsudhagar.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+-----------------
 
-### Support or Contact
+## Contribute
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- Clone the repo.
+- Create a branch off of master and give it a meaningful name (e.g. my-new-affiliates-feature).
+- Open a pull request on GitHub and describe the feature or fix.
