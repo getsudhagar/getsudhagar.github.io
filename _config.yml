@@ -2,7 +2,7 @@
 name: Sudhagar's Blog
 description: Sudhagar's Blog
 meta_description: "Jekyll theme for blogging."
-logo: 'assets/images/logo.png'
+logo: 'assets/images/SudhagarBlogLogo.png'
 favicon: 'assets/images/favicon.ico'
 paginate: 12
 baseurl: 
