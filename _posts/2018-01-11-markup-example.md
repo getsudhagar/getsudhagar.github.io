@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Markdown Example"
-author: john
+author: Sudhagar
 categories: [ Jekyll, tutorial ]
 image: assets/images/6.jpg
 ---

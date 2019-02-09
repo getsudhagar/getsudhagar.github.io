@@ -1,7 +1,7 @@
 ---
 layout: post-right-sidebar
 title:  "Red Riding Hood"
-author: sal
+author: Sudhagar
 categories: [Home,blog]
 image: assets/images/3.jpg
 ---

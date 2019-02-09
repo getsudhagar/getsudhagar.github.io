@@ -1,7 +1,7 @@
 ---
 layout: post-right-sidebar
 title:  "Design Thoughts #1"
-author: sal
+author: Sudhagar
 categories: [Home,blog]
 image: assets/images/design_thoughts1.jpeg
 ---
