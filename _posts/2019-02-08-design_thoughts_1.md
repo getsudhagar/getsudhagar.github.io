@@ -3,7 +3,7 @@ layout: post-right-sidebar
 title:  "Design Thoughts #1"
 author: sal
 categories: [Home,blog]
-image: assets/images/3.jpg
+image: assets/images/design_thoughts1.jpeg
 ---
 ### Do code only for application’s business logic.
 
