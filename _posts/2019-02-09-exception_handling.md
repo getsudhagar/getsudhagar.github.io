@@ -14,9 +14,14 @@ We have to decide based on type of the application or purpose of the application
 But if we are designing application like Micro Service which is consumer by JSON or XML messages. This case we know that we are throwing custom exception from all over application, so we can handle it Controller class. So we have choose Runtime type of custom exception. This way we don't need to have throws clause on methods signatures all over the application.
 ### Having only one custom exception like ApplicationException is good?
 I don't think that's a good approach. Having one custom exception means they throw only one exception every where in the application with different error code and messages.
-For Example, throw new ApplicationException(101, "Validation Error"); throw new ApplicationException(102, "Business Error");
+For Example, 
+````
+throw new ApplicationException(101, "Validation Error"); throw new ApplicationException(102, "Business Error");
+````
 Advantages of this way is we can avoid so many exception class but we have to write so many if conditions in the place where we control the behavior of the application based on error. We may or may not report certain errors based on errors. This case we have write if conditions for every error code like below
+````
 if(errorCode = = 101 && errorCode == 102 ) { // }
+````
 ### So having so many exception class is good approach?
 Having so many custom exception class is equals to having one custom exception class. Because we have to write plenty of boiler plate code to control the application behavior based on error type like we do on one exception class.
 so many custom exception class meant, having custom exception class for each error. For example, MaxLenthException, MinLengthException and etc.
@@ -40,8 +45,10 @@ Let's what are all the draw back on this,
 1.If we have error code and error message separately then there is chance people can use error code and error message interchangeably. So we should have error code and error message in one variable. Like below
 BusinessRuleException exp = new BusinessRuleException(Constants.ErrorCodeMessage);
 Think if constructor accepts String type of error code and messages like below
+````
 BusinessRuleException(String errorCodeMessage) {
 }
+````
 In this approach we have one draw back that since constructor take String type there is no guarantee that developers will always refer string type from actual Constant class. If they avoid Constant class then error code and messages are scattered across the application. So we will loose complete control of the application's reporting behavior. Application's future maintenance become worst.
 ### What would be the better constructor parameters data type?
 We should declare error codes and messages as Enum constants and constructor should accept only particular Enum constant type. So that it ensures developers to declare any new error code on Enum only. For Instance,
