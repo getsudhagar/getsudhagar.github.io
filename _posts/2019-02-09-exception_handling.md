@@ -45,8 +45,9 @@ BusinessRuleException(String errorCodeMessage) {
 In this approach we have one draw back that since constructor take String type there is no guarantee that developers will always refer string type from actual Constant class. If they avoid Constant class then error code and messages are scattered across the application. So we will loose complete control of the application's reporting behavior. Application's future maintenance become worst.
 ### What would be the better constructor parameters data type?
 We should declare error codes and messages as Enum constants and constructor should accept only particular Enum constant type. So that it ensures developers to declare any new error code on Enum only. For Instance,
+````
 public enum ResponseCodeMsgEnum {
-FID_NO_DL_LINES(new ResponseInfo(1, "Rule does not meet.")),
+NO_RULE(new ResponseInfo(1, "Rule does not meet.")),
 }
 public class ResponseInfo {
 private int responseCode;
@@ -55,9 +56,11 @@ private String responseMessage;
 Constructor look like,
 public BusinessRuleException(final ResponseCodeMsgEnum errorEnum, final Throwable throwable) {
 }
+````
 ### What are all places we have to throw exception in our application?
 There are only two scenario we have throw exception on our application.
 1.where ever we would like to throw application's custom error message on meeting certain conditions. For Instance,
+````
 if( ssn.legnth() > 9 ) {
 throw new BusinessRuleException(ErrorCodeMEssagesEnum.INVALID_SSN)
 }
@@ -67,9 +70,11 @@ try {
 }catch(JMSException exp){
 throw new MessageException(exp); //Custom exception
 }
+````
 I don't think any reason we should throw exception or handle exception any where in the application.
 We have to have only only place to handle all the exceptions including custom and system exceptions. That class is beginning of our application class, it's mostly our Controller class.
 For Instance,
+````
 public class MyController {
 @RequestMapping(value = "/myTest", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
 @ResponseBody
@@ -82,8 +87,10 @@ catch(Exception exp) {
 }
 }
 }
+````
 ### Do you think custom exception classes hierarchy is required?
 Yes, All our application's custom exception should be inherited from base custom exception class. This was we can completely customize the behavior of application errors versus system errors. For instance
+````
 try {
 }catch(Exception exp){
 if(exp instanceof AppException) { //AppException is base exception
@@ -91,4 +98,5 @@ if(exp instanceof AppException) { //AppException is base exception
 //Custom behavior goes here
 } else { //All remaining system exceptions fall under here..
 }
+````
 I hope by following these Do's and Dont's would make application's maintenance easier for ever.
